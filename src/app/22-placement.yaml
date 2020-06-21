@@ -1,0 +1,32 @@
+---
+apiVersion: app.ibm.com/v1alpha1
+kind: PlacementRule
+metadata:
+  name: sd4-d
+  namespace: sd4-chn-ns
+  labels:
+    app: sd4-application
+spec:
+  clusterReplicas: 1
+  clusterLabels:
+    matchExpressions:
+      - key: name
+        operator: In
+        values:
+          - ocp43-mcm-managed-d
+---
+apiVersion: app.ibm.com/v1alpha1
+kind: PlacementRule
+metadata:
+  name: sd4-e
+  namespace: sd4-chn-ns
+  labels:
+    app: sd4-application
+spec:
+  clusterReplicas: 1
+  clusterLabels:
+    matchExpressions:
+      - key: name
+        operator: In
+        values:
+          - ocp43-mcm-managed-e

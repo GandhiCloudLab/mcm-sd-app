@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sd4-chn-ns
+  labels:
+    app: sd4-application  
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sd4-app-ns
+  labels:
+    app: sd4-application  
+---

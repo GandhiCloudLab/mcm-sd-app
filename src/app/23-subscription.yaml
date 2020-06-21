@@ -1,0 +1,49 @@
+apiVersion: app.ibm.com/v1alpha1
+kind: Subscription
+metadata:
+  name: subscription-sd4-catalog
+  namespace: sd4-chn-ns
+  labels:
+    app: sd4-application
+spec:
+  channel: sd4-chn-ns/sd4-channel
+  packageFilter:
+    labelSelector:
+      matchLabels:
+        app: sd4-application
+        subapp: catalog
+  placement:
+    placementRef:
+      name: sd4-e
+      kind: PlacementRule
+      group: app.ibm.com
+  overrides:
+  - clusterName: "/"
+    clusterOverrides:
+    - path: "metadata.namespace"
+      value: sd4-app-ns      
+---
+apiVersion: app.ibm.com/v1alpha1
+kind: Subscription
+metadata:
+  name: subscription-sd4-frontweb
+  namespace: sd4-chn-ns
+  labels:
+    app: sd4-application
+spec:
+  channel: sd4-chn-ns/sd4-channel
+  packageFilter:
+    labelSelector:
+      matchLabels:
+        app: sd4-application
+        subapp: frontweb1
+  placement:
+    placementRef:
+      name: sd4-d
+      kind: PlacementRule
+      group: app.ibm.com
+  overrides:
+  - clusterName: "/"
+    clusterOverrides:
+    - path: "metadata.namespace"
+      value: sd4-app-ns

@@ -1,0 +1,12 @@
+apiVersion: app.ibm.com/v1alpha1
+kind: Channel
+metadata:
+  name: sd4-channel
+  namespace: sd4-chn-ns
+  labels:
+    app: sd4-application
+spec:
+  type: Namespace
+  pathname: sd4-chn-ns
+  sourceNamespaces:
+    - sd4-app-ns
