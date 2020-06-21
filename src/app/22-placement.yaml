@@ -13,7 +13,7 @@ spec:
       - key: name
         operator: In
         values:
-          - ocp43-mcm-managed-d
+        - ocp43-mcm-managed-d
 ---
 apiVersion: app.ibm.com/v1alpha1
 kind: PlacementRule

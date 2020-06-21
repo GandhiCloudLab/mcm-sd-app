@@ -36,7 +36,7 @@ spec:
     labelSelector:
       matchLabels:
         app: sd4-application
-        subapp: frontweb1
+        subapp: frontweb
   placement:
     placementRef:
       name: sd4-d

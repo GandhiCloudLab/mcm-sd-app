@@ -7,7 +7,7 @@ metadata:
     app.ibm.com/is-local-deployable: "false"
   labels:
     app: sd4-application
-    subapp: frontweb
+    subapp: frontweb1
 spec:
   template:
     kind: Deployment
@@ -22,7 +22,7 @@ spec:
       selector:
         matchLabels:
           app: sd4-application
-          subapp: frontweb
+          subapp: frontweb  
       replicas: 1
       template:
         metadata:
@@ -42,12 +42,8 @@ spec:
     namespace: sd4-app-ns
     kind: Service
   placement:
-    clusterLabels:
-      matchExpressions:
-        - key: name
-          operator: In
-          values:
-            - ocp43-mcm-managed-d
+    clusterNames:
+    - ocp43-mcm-managed-d
 ---
 apiVersion: app.ibm.com/v1alpha1
 kind: Deployable
@@ -58,7 +54,7 @@ metadata:
     app.ibm.com/is-local-deployable: "false"
   labels:
     app: sd4-application
-    subapp: frontweb1
+    subapp: frontweb
 spec:
   template:
     kind: Service
@@ -90,7 +86,7 @@ metadata:
     app.ibm.com/is-local-deployable: "false"  
   labels:
     app: sd4-application
-    subapp: frontweb1
+    subapp: frontweb
 spec:
   template:
     kind: Route
